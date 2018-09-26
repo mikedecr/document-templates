@@ -1,0 +1,62 @@
+---
+# global document parameters
+title: "R Markdown Document Template"
+author: "Michael G. DeCrescenzo"
+date: "Updated `r format(Sys.time(), '%B %d, %Y')`"
+abstract: "Abstract for an R Markdown document built with pdf\\LaTeX. Styles are similar to the pdf\\LaTeX\\ template. We additionally control title styles using `{titling}`. Many stylistic options are currently controlled globally by the main file's `YAML` header when they could probably be contained within an `include-header` argument in an `_output.yml` file."
+bibliography: /Users/michaeldecrescenzo/Dropbox/bib.bib
+biblio-style: authoryear
+
+# specification of output
+# we use bookdown::pdf_document2 to cross-reference tables and figs
+output: 
+  bookdown::pdf_document2: 
+    toc: false # true default?
+    keep_tex: true
+    includes: 
+      in_header: pdflatex-preamble.tex
+    number_sections: true
+    highlight: kate
+    fig_caption: true
+    citation_package: biblatex
+
+# can control some latex-type things with the YAML front matter
+# it may be less cluttered if you control some of these options 
+#   in a preamble or template file instead
+fontsize: 12pt
+geometry: margin = 1.25in
+indent: true
+linkcolor: red 
+urlcolor: blue 
+citecolor: black
+subparagraph: yes
+---
+
+# Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+## Elaboration on a finer point 
+
+Let's say we wanted to write some pretty math. Let's say we really thought item response theory (IRT) models were beautiful, and we were to write one flavor of IRT model to estimate individuals-within-groups [@caughey2015dynamic]:
+
+\begin{align}
+  \mathrm{Pr}\left( y_{ij} = 1 \right)
+  &=
+  \Phi \left[
+    \beta_{j} \left( \theta_{i} - \alpha_{j} \right)
+  \right] \\
+  \theta_{i} &\sim \mathrm{Normal}\left(\bar{\theta}_{g[i]}, \sigma_{g[i]} \right)
+\end{align}
+
+
+
+<!-- \newpage -->
+
+# References

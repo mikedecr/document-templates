@@ -1,0 +1,187 @@
+\documentclass[12pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin = 1.25in]{geometry}
+\usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{unicode=true,
+            pdftitle={R Markdown Document Template},
+            pdfauthor={Michael G. DeCrescenzo},
+            colorlinks=true,
+            linkcolor=red,
+            citecolor=black,
+            urlcolor=blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[style=authoryear]{biblatex}
+
+\addbibresource{/Users/michaeldecrescenzo/Dropbox/bib.bib}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{R Markdown Document Template}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Michael G. DeCrescenzo}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{Updated September 25, 2018}
+
+% ----------------------------------------------------
+%   a preamble file for use with R Markdown
+% ----------------------------------------------------
+
+% --- text and typography -----------------------
+
+% not actually sure that microtype works!
+\usepackage{microtype}   % microtypography
+
+\usepackage[lf, mathtabular, minionint]{MinionPro} % serif
+\usepackage{MyriadPro}                             % sans family
+\usepackage[varqu, scaled = 0.95]{zi4}             % mono w/ straight quotes
+
+% I'm not sure how well these two packages work either!
+\usepackage[utf8]{inputenc} % better interpretation of input characters
+\usepackage[T1]{fontenc}    % better output glyphs/behaviors
+
+
+% --- floats -----------------------
+\usepackage{booktabs}
+\usepackage{longtable} % for selective float-prevention
+\usepackage{dcolumn} % decimal-aligned columns
+
+
+
+% --- Styles -----------------------
+
+% TITLE
+\usepackage{titling}
+
+  % title field
+  \pretitle{\begin{center} \LARGE}
+  \posttitle{\par\end{center}\vskip 12pt}
+
+  % author field
+  \preauthor{\begin{center}\large}
+  \postauthor{\\ \normalsize 
+              \emph{University of Wisconsin--Madison}
+              \par\end{center}}
+
+  % date field
+  \predate{\begin{center}\small}
+  \postdate{\par\end{center}}
+
+% ABSTRACT
+\usepackage{abstract}
+  \renewcommand{\abstractname}{}    % clear the title
+  \renewcommand{\absnamepos}{empty} % originally center
+
+% % SECTIONS
+\usepackage[rm, small, sc]{titlesec}
+  \titleformat*{\subsection}{\itshape}
+  \titleformat*{\subsubsection}{\upshape} 
+  \titleformat*{\paragraph}{\itshape} 
+
+
+
+% --- Other document logic -----------------------
+
+% to-do notes
+\usepackage[colorinlistoftodos, 
+            prependcaption, 
+            obeyFinal,
+            textsize = footnotesize]{todonotes}
+  \presetkeys{todonotes}{fancyline, color = violet!30}{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Abstract for an R Markdown document built with pdf\LaTeX. Styles are
+similar to the pdf\LaTeX~template. We additionally control title styles
+using \texttt{\{titling\}}. Many stylistic options are currently
+controlled globally by the main file's \texttt{YAML} header when they
+could probably be contained within an \texttt{include-header} argument
+in an \texttt{\_output.yml} file.
+\end{abstract}
+
+\section{Introduction}\label{introduction}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum.
+
+\subsection{Elaboration on a finer
+point}\label{elaboration-on-a-finer-point}
+
+Let's say we wanted to write some pretty math. Let's say we really
+thought item response theory (IRT) models were beautiful, and we were to
+write one flavor of IRT model to estimate individuals-within-groups
+\autocite{caughey2015dynamic}:
+
+\begin{align}
+  \mathrm{Pr}\left( y_{ij} = 1 \right)
+  &=
+  \Phi \left[
+    \beta_{j} \left( \theta_{i} - \alpha_{j} \right)
+  \right] \\
+  \theta_{i} &\sim \mathrm{Normal}\left(\bar{\theta}_{g[i]}, \sigma_{g[i]} \right)
+\end{align}
+
+\printbibliography[title=References]
+
+
+\end{document}
