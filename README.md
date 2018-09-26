@@ -8,13 +8,14 @@ Helpful document templates.
 Goals for this repository
 
 - pdfLaTeX:
-  + article
-  + memoir/dissertation
+  + [x] article
+  + [ ] memoir/dissertation
 - XeLaTeX:
-  + article
+  + [ ] article (?)
 - R Markdown
-  + HTML report
-  + pdfLaTeX article
-  + XeLaTeX article
+  + [x] pdfLaTeX article
+  + [ ] XeLaTeX article
+  + [ ] HTML report
+  + [ ] memoir/dissertation(?) (pdflatex or xelatex?)
 - gitignore (h/t [github/gitignore](https://github.com/github/gitignore))
 
