@@ -1,0 +1,124 @@
+---
+title: An R Markdown Template
+subtitle: Modification of Steven V. Miller's Template
+author: 
+- name: Michael DeCrescenzo
+  # affiliation: University of Wisconsin--Madison
+  footnote: Ph.D. Candidate, Political Science, University of Wisconsin--Madison
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+thanks: "Replication files are available on the author's Github account..."
+abstract: "This document is a test of a custom R Markdown template. It is an adaptation of Steven V. Miller's manuscript template. Modifications include more flexible typeface management and relaxing user control over some default style parameters."
+keywords: "R Markdown, knitr, R Markdown"
+fontsize: 12pt
+fonts:
+  - package: MinionPro
+    options: lf, mathtabular, minionint
+  - package: MyriadPro
+  - package: zi4
+    options: varqu, scaled = 0.95
+geometry: margin = 1.25in
+output: 
+  bookdown::pdf_document2:
+    latex_engine: pdflatex
+    keep_tex: false
+    template: /users/michaeldecrescenzo/doc-templates/rmd/article/mgd-article-template.tex
+    toc: true
+    number_sections: false
+    fig_caption: true
+    # citation_package: natbib
+spacing: onehalfspacing
+# stretch: 3
+# bibliography: ~/Dropbox/master.bib
+# biblio-style: apsr
+---
+
+
+
+# Substance
+
+```{r mtcars, fig.cap = "Mileage of several automobiles", cache = TRUE, collapse = TRUE, fig.width = 5, fig.height = 4}
+
+library("ggplot2")
+library("extrafont")
+#  custom ggtheme, import from Github
+theme_url <- 
+  "https://raw.githubusercontent.com/mikedecr/custom-R/master/theme-mgd/theme-mgd.R"
+source(theme_url)
+theme_set(theme_minimal())
+
+
+ggplot(data = mpg, aes(x = displ, y = hwy)) +
+  geom_point()
+
+```
+
+explaining indirect death
+
+- collectivization makes it possible
+- social interventions weakened social ties that insulate individuals from greater hardship 
+- social interventions mediate risk of indirect death
+
+
+north "control zone" with respect to what?
+
+
+Discuss the method of case selection and classification of cases
+
+- Am I correct that you perform an inference (from interviews) about the level of collectivization in each commune
+- do you build this classification before you measured the number of indirect deaths?
+- I'm wondering, not accusing you of this, if it would have been possible to collect data on direct vs indirect deaths, and then using this information to affect how you approach the interviews that you conduct
+
+
+
+
+
+# Style
+
+The question
+
+Some warning that we're gonna be talking about mass killing?
+
+Existing approaches not easy to follow
+
+Discuss what you did, less of how disappointing the results were
+
+- sometimes sampling just doesn't work out
+- the thing you need to watch for is whether there is bias
+- don't neg your own description or data
+- 4 cases, "just going to walk through two of them"
+ + vs. 4 cases, I will highlight interesting aspects of two
+
+
+Flashing a picture from a mass grave
+
+1. maybe not cool
+2. not sure how it improved the presentation
+
+
+map of Pneoe is impossible to read
+
+
+More signposting during the case discussion
+
+- discussing marriages, punishments
+
+- but not always clear how this is reinforcing a point that you are trying to make
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Subsection
+
+### Even more detail down here
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+

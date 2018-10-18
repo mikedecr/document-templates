@@ -48,9 +48,9 @@
   \renewcommand{\absnamepos}{empty} % originally center
 
 % % SECTIONS
-\usepackage[rm, small, sc]{titlesec}
-  \titleformat*{\subsection}{\itshape}
-  \titleformat*{\subsubsection}{\upshape} 
+\usepackage[small, bf, sc]{titlesec}
+  % \titleformat*{\subsection}{\itshape}
+  \titleformat*{\subsubsection}{\itshape} 
   \titleformat*{\paragraph}{\itshape} 
 
 
@@ -63,4 +63,12 @@
             obeyFinal,
             textsize = footnotesize]{todonotes}
   \presetkeys{todonotes}{fancyline, color = violet!30}{}
+
+
+% --- bib -----------------------
+
+% natbib declared in RMD
+% \usepackage{natbib}
+ \bibpunct[: ]{(}{)}{;}{a}{}{,}
+
 

@@ -33,9 +33,8 @@
             urlcolor=blue,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage[style=authoryear]{biblatex}
-
-\addbibresource{/Users/michaeldecrescenzo/Dropbox/bib.bib}
+\usepackage{natbib}
+\bibliographystyle{plainnat}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -75,7 +74,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{Updated September 25, 2018}
+    \date{Updated October 17, 2018}
 
 % ----------------------------------------------------
 %   a preamble file for use with R Markdown
@@ -127,9 +126,9 @@
   \renewcommand{\absnamepos}{empty} % originally center
 
 % % SECTIONS
-\usepackage[rm, small, sc]{titlesec}
-  \titleformat*{\subsection}{\itshape}
-  \titleformat*{\subsubsection}{\upshape} 
+\usepackage[small, bf, sc]{titlesec}
+  % \titleformat*{\subsection}{\itshape}
+  \titleformat*{\subsubsection}{\itshape} 
   \titleformat*{\paragraph}{\itshape} 
 
 
@@ -143,6 +142,13 @@
             textsize = footnotesize]{todonotes}
   \presetkeys{todonotes}{fancyline, color = violet!30}{}
 
+
+% --- bib -----------------------
+
+% natbib declared in RMD
+% \usepackage{natbib}
+ \bibpunct[: ]{(}{)}{;}{a}{}{,}
+
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -154,7 +160,8 @@ could probably be contained within an \texttt{include-header} argument
 in an \texttt{\_output.yml} file.
 \end{abstract}
 
-\section{Introduction}\label{introduction}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -164,13 +171,14 @@ velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
 occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 mollit anim id est laborum.
 
+\hypertarget{elaboration-on-a-finer-point}{%
 \subsection{Elaboration on a finer
-point}\label{elaboration-on-a-finer-point}
+point}\label{elaboration-on-a-finer-point}}
 
 Let's say we wanted to write some pretty math. Let's say we really
 thought item response theory (IRT) models were beautiful, and we were to
 write one flavor of IRT model to estimate individuals-within-groups
-\autocite{caughey2015dynamic}:
+\citep{caughey2015dynamic}:
 
 \begin{align}
   \mathrm{Pr}\left( y_{ij} = 1 \right)
@@ -181,7 +189,14 @@ write one flavor of IRT model to estimate individuals-within-groups
   \theta_{i} &\sim \mathrm{Normal}\left(\bar{\theta}_{g[i]}, \sigma_{g[i]} \right)
 \end{align}
 
-\printbibliography[title=References]
+\hypertarget{we-are-low-hierarchically}{%
+\subsubsection{We are Low,
+Hierarchically}\label{we-are-low-hierarchically}}
+
+Sub-sub-sections may not be desirable, but we're exploring it.
+
+\renewcommand\refname{References}
+\bibliography{/Users/michaeldecrescenzo/Dropbox/bib.bib}
 
 
 \end{document}

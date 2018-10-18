@@ -2,10 +2,11 @@
 # global document parameters
 title: "R Markdown Document Template"
 author: "Michael G. DeCrescenzo"
+university: University of Wisconsin--Madison
 date: "Updated `r format(Sys.time(), '%B %d, %Y')`"
 abstract: "Abstract for an R Markdown document built with pdf\\LaTeX. Styles are similar to the pdf\\LaTeX\\ template. We additionally control title styles using `{titling}`. Many stylistic options are currently controlled globally by the main file's `YAML` header when they could probably be contained within an `include-header` argument in an `_output.yml` file."
 bibliography: /Users/michaeldecrescenzo/Dropbox/bib.bib
-biblio-style: authoryear
+# biblio-style: authoryear
 
 # specification of output
 # we use bookdown::pdf_document2 to cross-reference tables and figs
@@ -14,11 +15,11 @@ output:
     toc: false # true default?
     keep_tex: true
     includes: 
-      in_header: pdflatex-preamble.tex
+      in_header: mgd-article-preamble.tex
     number_sections: true
     highlight: kate
     fig_caption: true
-    citation_package: biblatex
+    citation_package: natbib
 
 # can control some latex-type things with the YAML front matter
 # it may be less cluttered if you control some of these options 
@@ -55,7 +56,9 @@ Let's say we wanted to write some pretty math. Let's say we really thought item 
   \theta_{i} &\sim \mathrm{Normal}\left(\bar{\theta}_{g[i]}, \sigma_{g[i]} \right)
 \end{align}
 
+### We are Low, Hierarchically
 
+Sub-sub-sections may not be desirable, but we're exploring it.
 
 <!-- \newpage -->
 
