@@ -33,6 +33,8 @@ $endif$
 
 \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
 
+\usepackage[obeyFinal]{todonotes}
+  \presetkeys{todonotes}{fancyline, color = lightgray}{}
 
 
 
@@ -54,8 +56,10 @@ $endif$
 \usepackage[small, bf]{titlesec}
   \titleformat*{\subsection}{\bfseries \itshape}
   \titleformat*{\paragraph}{\bfseries \itshape} 
-\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+% \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+% \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+\titlespacing\section{0pt}{1.5\parskip}{0.5\parskip}
+\titlespacing\subsection{0pt}{1.5\parskip}{0.5\parskip}
 % ---  -----------------------
 
 
@@ -99,6 +103,7 @@ $endif$
 %\setenumerate[0]{leftmargin=25pt}
 
 
+\usepackage[hyphens]{url}
 
 
 \makeatletter
@@ -182,16 +187,18 @@ $endif$
 \usepackage{setspace}
 
 $if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+  \title{$title$$if(thanks)$\thanks{$thanks$}$endif$
+         $if(subtitle)$ 
+         \\ $subtitle$
+         $endif$ 
+         }
 $endif$
-$if(subtitle)$
-\providecommand{\subtitle}[1]{}
-\subtitle{$subtitle$}
-$endif$
+
 $if(instructor)$
 \author{$for(instructor)$$instructor$$sep$ \and $endfor$}
 $endif$
-\date{$term$ 
+\date{$if(institution)$$institution$\\$endif$
+      $term$ 
       $if(updated)$ \\[6pt] \normalsize (Updated $updated$) $endif$}
 
 
@@ -209,10 +216,10 @@ $endif$
 
 \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} ll @{\extracolsep{\fill}}}
 
-  \textbf{Class Hours}: $if(classhours)$$classhours$$else$TBD$endif$ &
+  \textbf{Credits}: $if(credits)$$credits$$else$TBD$endif$ &
     \textbf{E-mail}: $if(email)$\texttt{$email$}$else$TBD$endif$ \\
 
-  \textbf{Class Room}: $if(classroom)$$classroom$$else$TBD$endif$ &
+  \textbf{Lecture}: $if(lecture)$$lecture$$else$TBD$endif$ &
     \textbf{Office Hours}: $if(officehours)$$officehours$$else$TBD$endif$ \\
 
   \textbf{Website}: $if(web)$\href{http://$web$}{\tt $web$}$else$TBD$endif$ &
