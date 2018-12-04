@@ -243,7 +243,10 @@ $if(title)$
   \maketitle
 $endif$
 
-\pagenumbering{gobble}
+% \pagenumbering{gobble}
+$if(frontpage)$
+  \pagenumbering{gobble}
+$endif$
 
 
 $if(abstract)$
@@ -264,7 +267,9 @@ $endif$
 % --- PAGE: contents -----------------------
 
 $if(toc)$ 
-  \newpage
+  $if(frontpage)$
+    \newpage
+  $endif$
   \hypersetup{linkcolor = black}
   \setcounter{tocdepth}{$toc-depth$}
   \tableofcontents
@@ -274,9 +279,11 @@ $endif$
 
 % --- PAGE: body -----------------------
 
-\newpage
 
-\pagenumbering{arabic}
+$if(frontpage)$
+  \newpage
+  \pagenumbering{arabic}
+$endif$
 
 \noindent 
 $if(anonymous)$
