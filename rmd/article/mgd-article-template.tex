@@ -49,6 +49,12 @@ $endif$
 
 
 
+% ---- math 
+\usepackage{bm}
+
+
+
+
 % decimal numbering for appendix figs and tabs
 $if(appendix)$
   \renewcommand*\thetable{$appendixletter$.\arabic{table}}
@@ -81,17 +87,18 @@ $if(tables)$
   \usepackage{longtable, booktabs}
 $endif$
 
-$if(graphics)$
-  \usepackage{graphicx,grffile}
-  % Scale images; don't overflow page margins by default.
-  % Still possible explicate \includegraphics[width, height, ...]{}
-  \makeatletter
-    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-    \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-  \makeatother 
-  \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-$endif$
-
+% $if(graphics)$
+\usepackage{graphicx}
+\usepackage{grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% $endif$
 
 
 
@@ -220,7 +227,7 @@ $endif$
 
 
 % section titles
-\usepackage[small, bf, sc]{titlesec}
+\usepackage[small, bf]{titlesec}
   % \titleformat*{\subsection}{\itshape}
   \titleformat*{\subsubsection}{\itshape} 
   \titleformat*{\paragraph}{\itshape} 
@@ -255,8 +262,10 @@ $if(abstract)$
     \noindent $abstract$ 
 
     $if(keywords)$ 
-      \hfill \\ 
-      \noindent \emph{Keywords}: $keywords$ 
+      % \hfill \\[-6pt]
+      \begin{flushleft}
+        \noindent \emph{Keywords}: $keywords$ 
+      \end{flushleft}
     $endif$
 
   \end{abstract}
