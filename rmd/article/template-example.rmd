@@ -25,11 +25,11 @@ output:
     toc: true
     number_sections: false
     fig_caption: true
-    # citation_package: natbib
+    citation_package: biblatex
 spacing: onehalfspacing
-# stretch: 3
-# bibliography: ~/Dropbox/master.bib
-# biblio-style: apsr
+bibliography: /users/michaeldecrescenzo/dropbox/bib.bib
+biblio-style: chicago-authordate # biblatex
+# biblio-style: apsr # natbib
 ---
 
 
@@ -38,8 +38,15 @@ spacing: onehalfspacing
 
 ```{r mtcars, fig.cap = "Mileage of several automobiles", cache = TRUE, collapse = TRUE, fig.width = 5, fig.height = 4}
 
+knitr::opts_chunk$set(
+  eval = TRUE, echo = FALSE, include = FALSE, 
+  warning = FALSE, message = FALSE,
+  cache = TRUE, collapse = TRUE,
+  fig.retina = 2, dev = "cairo_pdf",
+  fig.align = "center"
+)
+
 library("ggplot2")
-library("extrafont")
 theme_set(theme_minimal())
 
 
