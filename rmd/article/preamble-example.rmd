@@ -60,6 +60,12 @@ Let's say we wanted to write some pretty math. Let's say we really thought item 
 
 Sub-sub-sections may not be desirable, but we're exploring it.
 
+```{r}
+library("ggplot2")
+
+ggplot(mtcars, aes(x = mpg)) + geom_histogram()
+```
+
 <!-- \newpage -->
 
 # References
