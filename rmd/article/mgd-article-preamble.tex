@@ -5,22 +5,27 @@
 % --- text and typography -----------------------
 
 % not actually sure that microtype works!
-\usepackage{microtype}   % microtypography
+% \usepackage{microtype}   % microtypography
 
 \usepackage[lf, mathtabular, minionint]{MinionPro} % serif
 \usepackage{MyriadPro}                             % sans family
 \usepackage[varqu, scaled = 0.95]{zi4}             % mono w/ straight quotes
 
+% are these needed??
+% \usepackage[utf8]{inputenc} % better interpretation of input characters
+% \usepackage[T1]{fontenc}    % better output glyphs/behaviors
 % I'm not sure how well these two packages work either!
-\usepackage[utf8]{inputenc} % better interpretation of input characters
-\usepackage[T1]{fontenc}    % better output glyphs/behaviors
 
+
+\usepackage{bm}
 
 % --- floats -----------------------
-\usepackage{booktabs}
-\usepackage{longtable} % for selective float-prevention
+% is this needed??
+% \usepackage{booktabs}
+% \usepackage{longtable} % for selective float-prevention
 \usepackage{dcolumn} % decimal-aligned columns
-
+\usepackage{rotating}
+\usepackage{placeins}
 
 
 % --- Styles -----------------------
@@ -34,12 +39,12 @@
 
   % author field
   \preauthor{\begin{center}\large}
-  \postauthor{\\ \normalsize 
-              \emph{University of Wisconsin--Madison}
+  \postauthor{% \\ \normalsize 
+              % \emph{University of Wisconsin--Madison}
               \par\end{center}}
 
   % date field
-  \predate{\begin{center}\small}
+  \predate{\begin{center}}
   \postdate{\par\end{center}}
 
 % ABSTRACT
@@ -48,7 +53,7 @@
   \renewcommand{\absnamepos}{empty} % originally center
 
 % % SECTIONS
-\usepackage[small, bf, sc]{titlesec}
+\usepackage[small, bf]{titlesec}
   % \titleformat*{\subsection}{\itshape}
   \titleformat*{\subsubsection}{\itshape} 
   \titleformat*{\paragraph}{\itshape} 
@@ -69,6 +74,6 @@
 
 % natbib declared in RMD
 % \usepackage{natbib}
- \bibpunct[: ]{(}{)}{;}{a}{}{,}
+ % \bibpunct[: ]{(}{)}{;}{a}{}{,}
 
 
